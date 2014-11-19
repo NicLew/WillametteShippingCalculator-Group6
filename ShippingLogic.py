@@ -35,10 +35,10 @@ class ShippingLogic:
 		""" determine the total chargable weight of the items in the basket
 		"""
 		
-		weight = 1
+		weight = 0
 		
 		for item in basket.items():
-			if not item[1].getFreeShipping() :
+			if not item[1].getFreeShipping():
 				weight += (item[0] * int(item[1].getWeight()))
 				
 		return weight
@@ -48,7 +48,7 @@ class ShippingLogic:
 		""" determine the total cost of shipping the given weight
 		"""
 		
-		cost = 1
+		cost = 0
 		
 		if weight <= self._FREE_SHIPPING_WEIGHT:
 			for rate in self._rate :
